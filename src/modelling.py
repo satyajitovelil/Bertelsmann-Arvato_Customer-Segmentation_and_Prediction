@@ -1,4 +1,6 @@
 from sklearn.model_selection import GridSearchCV
+from sklearn.cluster import KMeans
+from yellowbrick.cluster import KElbowVisualizer
 
 
 def GridSearch_ClassifierCV(model, X, y, params={}, cv=5):
@@ -33,3 +35,10 @@ def GridSearch_ClassifierCV(model, X, y, params={}, cv=5):
     search.fit(X, y)
 
     return search
+
+def plot_elbow(df, k=(2,32), randomState=42):
+    '''Creates Elbow Graph for KMeans using KElbowVisualizer'''
+    kmeans_yb = KMeans(random_state=randomState, n_init='auto')
+    elbow_visualizer = KElbowVisualizer(kmeans_yb, k=k)
+    elbow_visualizer.fit(df)
+    elbow_visualizer.show();

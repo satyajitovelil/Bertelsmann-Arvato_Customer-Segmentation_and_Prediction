@@ -147,3 +147,14 @@ def plot_feature_weights(feature_weights_i):
     plt.barh(feature_weights_i.head(3)['index'], feature_weights_i.head(3).weights)
     plt.barh(feature_weights_i.tail(3)['index'], feature_weights_i.tail(3).weights)
     plt.show();
+
+def plot_clusters(df1, df2):
+    '''Creates a Bar plot of number of observation in each cluster for each df'''
+    cluster_count = pd.merge(pd.Series(df1, name='azdias').value_counts(), 
+                             pd.Series(df2, name='customers').value_counts(),
+                         left_index=True,
+                         right_index=True
+                        )
+    cluster_count.sort_index(inplace=True)
+    cluster_plot_data = cluster_count/cluster_count.sum()
+    cluster_plot_data.plot.bar(figsize=(12,6), secondary_y='customers');
