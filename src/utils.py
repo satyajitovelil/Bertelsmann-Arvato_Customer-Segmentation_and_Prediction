@@ -1,37 +1,41 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt 
+import matplotlib.pyplot as plt
 
 def load_info(metaPath, **kwargs):
+    '''Reads the metadata file & returns a DataFrame containing columns with additional information'''
     attributes_df = pd.read_excel(metaPath, **kwargs).drop('Unnamed: 0', axis=1)
-
     if 'Information level' in attributes_df.columns:
-        attribute_info['Information level'] = attribute_info['Information level'].ffill()
+        attributes_df['Information level'] = attributes_df['Information level'].ffill()
     else:
         attributes_df[['Attribute', 'Description']] = attributes_df[['Attribute', 'Description']].ffill()
-
     attributes_df['Missing'] = attributes_df['Meaning'].apply(lambda x: 'unknown' in x if type(x)==str else x)
     return attributes_df
 
 def get_attributes(substring, attributes_df):
+    '''Returns a list of attributes that conatins the substring from attributes df'''
     return list(attributes_df[attributes_df.Attribute.str.contains(substring)].Attribute.unique())
 
 def get_attribute_info(attribute, attributes_df):
+    '''Returns a slice of the attribites df pertaining to the passed attribute'''
     return attributes_df[attributes_df.Attribute == attribute]
 
 def get_categorical_attributes_info(attributes_df):
+    '''Returns a slice of the attribites df that have non-numeric values'''
     categorical_attributes_info = attributes_df.loc[attributes_df.Value.apply(lambda x: (type(x)==str) & (x!='-1, 0') & (x!='-1, 9')), :]
     categorical_attributes_info = categorical_attributes_info.reset_index()
     categorical_attributes_info = categorical_attributes_info[categorical_attributes_info.Value!='…']
     return categorical_attributes_info
 
-def get_binary_attributes_info(attributes_df):    
+def get_binary_attributes_info(attributes_df):
+    '''Returns a slice of the attribites df that have binary values'''
     binary_attrib = attributes_df.query("Missing == False").groupby('Attribute').size()
     binary_attrib_index = binary_attrib[attrib_binary == 2].index
     binary_attributes_info = attributes_df.loc[attributes_df.Attribute.apply(lambda x: x in binary_attrib_index), :].query("Missing==False")
     return binary_attributes_info
 
-def get_typ_class_attrib_info(attributes_df):  
+def get_typ_class_attrib_info(attributes_df):
+    '''Returns a slice of the attribites df that have any of the keywords typ or klasse'''
     typ_attributes = attributes_df.loc[attributes_df.Attribute.str.contains('TYP'), :]
     klasse_attributes = attributes_df.loc[attributes_df.Attribute.str.contains('KLASSE'), :]
     cols_typ = attributes_df.loc[attributes_df.Description.str.contains('typ'), :]
@@ -45,9 +49,6 @@ def find_columns(col_string, df):
     
 def get_unique_vals(df, column):
     print('Unique Values in Column {}: '.format(column), df.loc[:, column].unique())
-    
-# def replace_vals(df, col, func):
-#     df.loc[:, col] = df.loc[:, col].apply(func)
 
 def create_missing_val_list(x):
     """
