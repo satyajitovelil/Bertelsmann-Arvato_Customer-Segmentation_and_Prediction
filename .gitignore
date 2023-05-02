@@ -1,7 +1,5 @@
 misc
 .ipynb_checkpoints
-data/azdias.pkl
-data/customers.pkl
 .vscode
 __pycache__
 *.pkl
