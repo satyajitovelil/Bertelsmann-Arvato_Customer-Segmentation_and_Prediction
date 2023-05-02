@@ -28,3 +28,7 @@ By the end of the project, we aim to provide insights that will help the mail-or
 ![Kaggle Evaluation](/report/figures/Kaggle2.jpg "Results")
 
 
+### Acknowledgements
+I am grateful to Udacity & Bertelsmann-Arvato for this amazing data and Problem statement. Special thanks to [Joshua Starmer's StatQuest](https://www.youtube.com/@statquest) for providing an explanantion of PCA & KMeans algorithms. Also of note was this succinct article on the [Elbow Method](https://stackabuse.com/k-means-clustering-with-the-elbow-method/) by Cássia Sampaio. 
+
+
