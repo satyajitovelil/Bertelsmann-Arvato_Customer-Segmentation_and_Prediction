@@ -25,6 +25,6 @@ By the end of the project, we aim to provide insights that will help the mail-or
 
 ### Summary of the Results
 
-![Kaggle Evaluation](https://github.com/satyajitovelil/Bertelsmann-Arvato_Project-/blob/3c1bff5c0fbfd59bc54c5fe58249063f119583d4/report/figures/Kaggle2.jpg)
+![Kaggle Evaluation](/report/figures/Kaggle2.jpg "Results")
 
 
