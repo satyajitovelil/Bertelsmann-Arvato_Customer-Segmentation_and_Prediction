@@ -19,7 +19,7 @@ By the end of the project, we aim to provide insights that will help the mail-or
 ### Files in the repository 
 
 1. [Project Notebook](https://github.com/satyajitovelil/Bertelsmann-Arvato_Project-/blob/971e4a6fc8ceca7329a550a255e0704242e3ea0b/Arvato%20Project%20Workbook.ipynb)
-2. [Project Report](https://github.com/satyajitovelil/Bertelsmann-Arvato_Project-/blob/3c1bff5c0fbfd59bc54c5fe58249063f119583d4/report/Arvato%20Project%20Workbook.pdf)
+2. [Project Report](https://github.com/satyajitovelil/Bertelsmann-Arvato_Project-/blob/3c1bff5c0fbfd59bc54c5fe58249063f119583d4/report/Arvato%20Project%20Report.pdf)
 3. [src](https://github.com/satyajitovelil/Bertelsmann-Arvato_Project-/blob/3c1bff5c0fbfd59bc54c5fe58249063f119583d4/src) conatins all the modules used in the Project Notebook
 4. [Results](https://github.com/satyajitovelil/Bertelsmann-Arvato_Project-/blob/3c1bff5c0fbfd59bc54c5fe58249063f119583d4/results) Contains all the Prediction on Test Data
 
